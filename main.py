@@ -17,19 +17,21 @@ from telegram.ext import (
 )
 
 # ------------------ Load API Keys ------------------ #
-import os
+
 from dotenv import load_dotenv
+import os
 
-# LOAD ENV FILE (if running locally)
-load_dotenv()
+TOKEN = os.environ.get("BOT_TOKEN")
+GROQ_KEY = os.environ.get("GROQ_API_KEY")
 
-# DEBUG PRINT TO CONFIRM
-print("BOT_TOKEN:", os.getenv("BOT_TOKEN"))
-print("GROQ_API_KEY:", os.getenv("GROQ_API_KEY"))
+print("BOT_TOKEN:", TOKEN)
+print("GROQ_API_KEY:", GROQ_KEY)
 
-# ACCESS ENV VARS
-TOKEN = os.getenv("BOT_TOKEN")
-GROQ_KEY = os.getenv("GROQ_API_KEY")
+if not TOKEN:
+    raise Exception("BOT_TOKEN NOT FOUND!")
+if not GROQ_KEY:
+    raise Exception("GROQ_API_KEY NOT FOUND!")
+
 
 if not TOKEN:
     raise Exception("BOT_TOKEN NOT FOUND!")
