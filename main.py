@@ -17,7 +17,6 @@ from telegram.ext import (
 )
 
 # ------------------ Load API Keys ------------------ #
-load_dotenv()
 TOKEN = os.getenv("BOT_TOKEN")
 from groq import Groq
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
