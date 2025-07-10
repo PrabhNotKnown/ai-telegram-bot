@@ -17,9 +17,9 @@ from telegram.ext import (
 )
 
 # ------------------ Load API Keys ------------------ #
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = os.environ["BOT_TOKEN"]
 from groq import Groq
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+client = Groq(api_key=os.environ["GROQ_API_KEY"])
 
 # ------------------ Telegram States ------------------ #
 ASK_TYPE, ASK_SYMBOL, ASK_PRICE = range(3)
