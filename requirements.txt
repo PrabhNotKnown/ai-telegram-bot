@@ -1,0 +1,7 @@
+python-telegram-bot==20.6
+beautifulsoup4
+python-dotenv
+pyttsx3
+PyMuPDF
+requests
+groq
