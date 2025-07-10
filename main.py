@@ -17,13 +17,24 @@ from telegram.ext import (
 )
 
 # ------------------ Load API Keys ------------------ #
+import os
 from dotenv import load_dotenv
+
+# LOAD ENV FILE (if running locally)
 load_dotenv()
-TOKEN = os.environ["BOT_TOKEN"]
-from groq import Groq
-client = Groq(api_key=os.environ["GROQ_API_KEY"])
-print("BOT_TOKEN from env:", os.getenv("BOT_TOKEN"))
-print("Full ENV:", dict(os.environ))
+
+# DEBUG PRINT TO CONFIRM
+print("BOT_TOKEN:", os.getenv("BOT_TOKEN"))
+print("GROQ_API_KEY:", os.getenv("GROQ_API_KEY"))
+
+# ACCESS ENV VARS
+TOKEN = os.getenv("BOT_TOKEN")
+GROQ_KEY = os.getenv("GROQ_API_KEY")
+
+if not TOKEN:
+    raise Exception("BOT_TOKEN NOT FOUND!")
+if not GROQ_KEY:
+    raise Exception("GROQ_API_KEY NOT FOUND!")
 
 
 # ------------------ Telegram States ------------------ #
