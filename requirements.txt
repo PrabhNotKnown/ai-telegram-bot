@@ -5,3 +5,4 @@ pyttsx3
 PyMuPDF
 requests
 groq
+yfinance
